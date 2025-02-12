@@ -20,8 +20,8 @@ function ItemsList({
             <h2>Items List</h2>
             {!loading && !error && (
                 <ul>
-                    {items.map((item, i) => (
-                        <Item item={item} key={i} />
+                    {items.map((item) => (
+                        <Item item={item} key={item.id} />
                     ))}
                 </ul>
             )}
