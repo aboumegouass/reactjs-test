@@ -1,3 +1,5 @@
+import Alert from "../UIComponents/Alert";
+import Loading from "../UIComponents/Loading";
 import Item from "./Item";
 type CompProps = {
     loading: boolean
@@ -9,11 +11,13 @@ function ItemsList({
     error,
     items
 }: CompProps) {
+    if (loading)
+        return <Loading />
+    if (error)
+        return <Alert text={error} />
     return (
         <div>
             <h2>Items List</h2>
-            {loading && <p>Loading...</p>}
-            {error && <p style={{ color: "red" }}>Error: {error}</p>}
             {!loading && !error && (
                 <ul>
                     {items.map((item, i) => (
